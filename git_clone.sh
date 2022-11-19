@@ -14,4 +14,20 @@ git clone https://aur.archlinux.org/jetbrains-fleet.git &&
 git clone https://aur.archlinux.org/android-studio.git &&
 git clone https://aur.archlinux.org/anydesk-bin.git &&
 git clone https://aur.archlinux.org/inxi.git &&
-git clone 
+git clone https://aur.archlinux.org/armcord-bin.git &&
+git clone https://aur.archlinux.org/heroku-cli-bin.git &&
+git clone https://aur.archlinux.org/gdlauncher-bin.git &&
+git clone https://aur.archlinux.org/tlauncher-org.git &&
+git clone https://aur.archlinux.org/lunar-client.git &&
+git clone https://aur.archlinux.org/jellyfin-media-player.git &&
+git clone https://aur.archlinux.org/virtualbox-ext-oracle.git &&
+git clone https://aur.archlinux.org/vscodium-bin.git &&
+git clone https://aur.archlinux.org/visual-studio-code-bin.git &&
+git clone https://aur.archlinux.org/visual-studio-code-insiders.git &&
+git clone https://aur.archlinux.org/bottles.git &&
+git clone https://aur.archlinux.org/appimagelauncher.git &&
+git clone https://aur.archlinux.org/ungoogled-chromium-bin.git &&
+git clone https://aur.archlinux.org/rustdesk-bin.git &&
+git clone https://aur.archlinux.org/protonvpn-gui.git &&
+git clone https://aur.archlinux.org/etcher-bin.git &&
+git clone https://aur.archlinux.org/noisetorch.git
