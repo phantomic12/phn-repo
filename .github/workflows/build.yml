@@ -16,7 +16,7 @@ jobs:
       - run: sh git_clone.sh
       - uses: phantomic12/action@temp
         with:
-          command: git clone https://github.com/phantomic12/openssl-1-files.git && cd openssl-1-files && mv libcrypto.so.1.1 libssl.so.1.1 /usr/lib && cd .. && rm -rf openssl-1-files build-pacman-repo build && sh genconf.sh
+          command: sh genconf.sh && build-pacman-repo build
       - run: chmod +x /usr/local/bin/build-pacman-repo
       - run: tar --create -v pee.tar *.zst
       - name: Upload Artifacts
