@@ -7,7 +7,7 @@ git clone https://aur.archlinux.org/ventoy-bin.git &&
 git clone https://aur.archlinux.org/waterfox-g-bin.git &&
 git clone https://aur.archlinux.org/waterfox-g4-bin.git &&
 git clone https://aur.archlinux.org/waterfox-g3-git.git &&
-git clone https://aur.archlinux.org/slack-desktop.git &&
+git clone https://aur.archlinux.org/pycharm-community-jre.git &&
 git clone https://aur.archlinux.org/slack-desktop.git &&
 git clone https://aur.archlinux.org/heroic-games-launcher-bin.git &&
 git clone https://aur.archlinux.org/jetbrains-fleet.git &&
