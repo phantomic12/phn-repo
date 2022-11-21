@@ -1,3 +1,4 @@
+mkdir pkg && cd pkg &&
 git clone https://aur.archlinux.org/brave-nightly-bin.git &&
 git clone https://aur.archlinux.org/brave-bin.git &&
 git clone https://aur.archlinux.org/brave-beta-bin.git &&
@@ -30,4 +31,5 @@ git clone https://aur.archlinux.org/ungoogled-chromium-bin.git &&
 git clone https://aur.archlinux.org/rustdesk-bin.git &&
 git clone https://aur.archlinux.org/protonvpn-gui.git &&
 git clone https://aur.archlinux.org/etcher-bin.git &&
-git clone https://aur.archlinux.org/noisetorch.git
+git clone https://aur.archlinux.org/noisetorch.git &&
+cd ..
