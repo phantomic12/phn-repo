@@ -4,5 +4,4 @@ build-pacman-repo print-config \
   --require-pkgbuild \
   --require-srcinfo \
   --with-install-missing-dependencies true \
-  --arch-filter: [x86_64]
   > build-pacman-repo.yaml
