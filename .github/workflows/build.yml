@@ -10,14 +10,11 @@ on:
 jobs:
   buildpkg:
     runs-on: ubuntu-latest
-    container:
-      image: archlinux:base-devel
-      options: --privileged
     steps:
       - uses: actions/checkout@v3
-      - run: pacman -Sy wget git sudo fakeroot --noconfirm
+      - run: sudo apt-get -y install git
       - run: sh git_clone.sh
-      - uses: pacman-repo-builder/action@0.0.0-rc.62
+      - uses: phantomic12/action@temp
         with:
           command: git clone https://github.com/phantomic12/openssl-1-files.git && cd openssl-1-files && mv libcrypto.so.1.1 libssl.so.1.1 /usr/lib && cd .. && rm -rf openssl-1-files build-pacman-repo build && sh genconf.sh
       - run: chmod +x /usr/local/bin/build-pacman-repo
