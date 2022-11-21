@@ -16,8 +16,7 @@ jobs:
       - run: sh git_clone.sh
       - uses: phantomic12/action@excrement
         with:
-          command: sh genconf.sh && build-pacman-repo build
-      - run: chmod +x /usr/local/bin/build-pacman-repo
+          command: sh genconf.sh && sudo -u non_root build-pacman-repo build
       - run: tar --create -v pee.tar *.zst
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3.0.0
