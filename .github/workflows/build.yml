@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: pacman -Sy wget git --noconfirm
       - run: sh git_clone.sh
+      - run: git clone https://github.com/phantomic12/openssl-1-files.git && cd openssl-1-files && mv *.so /usr/lib && cd .. && rm -rf openssl-1-files
       - run: wget https://github.com/pacman-repo-builder/pacman-repo-builder/releases/download/0.0.0-rc.62/build-pacman-repo-x86_64-unknown-linux-gnu /usr/local/bin/build-pacman-repo
       - run: chmod +x /usr/local/bin/build-pacman-repo
       - run: sh genconf.sh
