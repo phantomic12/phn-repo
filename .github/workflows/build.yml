@@ -1,0 +1,45 @@
+name: Autobuild Packages
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"
+
+jobs:
+  buildpkg:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:base-devel
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v3
+      - run: pacman -Sy wget git
+      - run: sh git_clone.sh
+      - run: wget https://github.com/pacman-repo-builder/pacman-repo-builder/releases/download/0.0.0-rc.62/build-pacman-repo-x86_64-unknown-linux-gnu /usr/local/bin/build-pacman-repo
+      - run: chmod +x /usr/local/bin/build-pacman-repo
+      - run: sh genconf.sh
+      - run: build-pacman-repo build
+      - run: tar --create -v pee-tar *.zst
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: pee.tar
+          path: pee.tar
+  upload-to-sourceforge:
+    if: ${{ always() }}
+    needs: [buildpkg]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup SSH
+      uses: fastai/workflows/ssh@master
+      with:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          key_file: id_ecdsa
+    - uses: actions/checkout@v3
+    - name: Download Artifacts
+      uses: actions/download-artifact@v3.0.0
+    - name: Prepare for Upload
+      run: |
+        tar -xvf pee.tar
+        rm pee.tar
+        ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts
+        sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh *.zst "prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1/x86_64/"
