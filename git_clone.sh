@@ -1,6 +1,5 @@
 mkdir pkg &&
-mkdir /etc/sudoers &&
-"echo 'non_root ALL=NOPASSWD: ALL' >> /etc/sudoers"
+echo 'non_root ALL=NOPASSWD: ALL' >> /etc/sudoers &&
 chown -R non_root:non_root $(pwd)/pkg
 cd pkg &&
 git clone https://aur.archlinux.org/brave-nightly-bin.git &&
