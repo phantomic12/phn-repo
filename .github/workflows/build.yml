@@ -22,7 +22,7 @@ jobs:
       - run: mv build-pacman-repo-x86_64-unknown-linux-gnu /usr/local/bin/build-pacman-repo
       - run: chmod +x /usr/local/bin/build-pacman-repo
       - run: sh genconf.sh
-      - run: sudo -u nobody build-pacman-repo build
+      - run: sudo -u non_root build-pacman-repo build
       - run: tar --create -v pee.tar *.zst
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3.0.0
