@@ -1,4 +1,5 @@
 mkdir pkg &&
+useradd -ms /bin/bash pee
 echo 'pee ALL=NOPASSWD: ALL' >> /etc/sudoers &&
 chown -R pee:pee $(pwd)/pkg
 cd pkg &&
