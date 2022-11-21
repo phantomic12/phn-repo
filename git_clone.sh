@@ -1,7 +1,4 @@
 mkdir pkg &&
-useradd -ms /bin/bash pee
-echo 'pee ALL=NOPASSWD: ALL' >> /etc/sudoers &&
-chown -R pee:pee $(pwd)/pkg
 cd pkg &&
 git clone https://aur.archlinux.org/brave-nightly-bin.git &&
 git clone https://aur.archlinux.org/brave-bin.git &&
