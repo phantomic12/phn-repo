@@ -18,13 +18,7 @@ jobs:
     - run: sudo wget https://sources.archlinux.org/other/pacman/pacman-6.0.2.tar.xz
     - run: sudo tar -xvf pacman-6.0.2.tar.xz
     - run: pushd pacman-6.0.2
-    - run: sudo meson --prefix=/usr \
-                      --buildtype=plain \
-                      -Ddoc=disabled \
-                      -Ddoxygen=enabled \
-                      -Dscriptlet-shell=/usr/bin/bash \
-                      -Dldconfig=/usr/bin/ldconfig \
-                      build
+    - run: sudo meson build
     - run: sudo meson compile -C build
     - run: sudo meson install -C build
     - run: popd
