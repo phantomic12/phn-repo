@@ -92,10 +92,5 @@ jobs:
         sudo pacman-key --populate archlinux manjaro
         for gpg_key in ${{ inputs.additional-trusted-gpg }}; do
           sudo pacman-key --keyserver keys.openpgp.org --recv-key $gpg_key
-        done
-
-      
-    - id: Build pacman-repo-builder
-      shell: bash
-      run: git clone https://github.com/phantomic12/pacman-repo-builder && sudo apt-get -y install cargo && cd pacman-repo-builder && cargo build
+        git clone https://github.com/phantomic12/pacman-repo-builder && sudo apt-get -y install cargo && cd pacman-repo-builder && cargo build
 
