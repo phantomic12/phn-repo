@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sudo apt-get -y install git
+      - run: sh test.sh
       - run: sh git_clone.sh
       - uses: phantomic12/action@l
         with:
