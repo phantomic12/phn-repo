@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run:  sudo apt-get update
-        sudo apt-get install \
+      - run: sudo apt-get update
+      - run: sudo apt-get install \
           gdisk \
           zip \
           systemd-container \
@@ -41,39 +41,39 @@ jobs:
           doxygen \
           zstd \
           openssl
-        sudo python3 -m pip install meson
-        sudo python3 -m pip install ninja
-        sudo wget https://sources.archlinux.org/other/pacman/pacman-6.0.2.tar.xz
-        sudo tar -xvf pacman-6.0.2.tar.xz
-        pushd pacman-6.0.2
-        sudo meson --prefix=/usr \
+        - run: sudo python3 -m pip install meson
+        - run: sudo python3 -m pip install ninja
+        - run: sudo wget https://sources.archlinux.org/other/pacman/pacman-6.0.2.tar.xz
+        - run: sudo tar -xvf pacman-6.0.2.tar.xz
+        - run: pushd pacman-6.0.2
+        - run: sudo meson --prefix=/usr \
                       --buildtype=plain \
                       -Ddoc=disabled \
                       -Ddoxygen=enabled \
                       -Dscriptlet-shell=/usr/bin/bash \
                       -Dldconfig=/usr/bin/ldconfig \
                       build
-        sudo meson compile -C build
-        sudo meson install -C build
-        popd
-          sudo install -m644 pacman.conf /etc/pacman.conf
-          sudo install -m644 makepkg.conf /etc/
-          sudo mkdir -p /etc/pacman.d
-          sudo touch /etc/pacman.d/mirrorlist
-        popd
-      - run:  mkdir -p archlinux-keyring
-        pushd archlinux-keyring
-          wget https://archlinux.org/packages/core/any/archlinux-keyring/download -O /tmp/archlinux-keyring.tar.zst
-          tar --use-compress-program=unzstd --strip-components=4 --wildcards -xvf /tmp/archlinux-keyring.tar.zst usr/share/pacman/keyrings/*
-          sudo install -m0644 archlinux.gpg /usr/share/pacman/keyrings/
-          sudo install -m0644 archlinux-trusted /usr/share/pacman/keyrings/
-          sudo install -m0644 archlinux-revoked /usr/share/pacman/keyrings/
-        popd  
-        sudo pacman-key --init
-        sudo pacman-key --populate archlinux
+        - run: sudo meson compile -C build
+        - run: sudo meson install -C build
+        - run: popd
+        - run: sudo install -m644 pacman.conf /etc/pacman.conf
+        - run: sudo install -m644 makepkg.conf /etc/
+        - run: sudo mkdir -p /etc/pacman.d
+        - run: sudo touch /etc/pacman.d/mirrorlist
+        - run: popd
+        - run: mkdir -p archlinux-keyring
+        - run: pushd archlinux-keyring
+        - run: wget https://archlinux.org/packages/core/any/archlinux-keyring/download -O /tmp/archlinux-keyring.tar.zst
+        - run: tar --use-compress-program=unzstd --strip-components=4 --wildcards -xvf /tmp/archlinux-keyring.tar.zst usr/share/pacman/keyrings/*
+        - run: sudo install -m0644 archlinux.gpg /usr/share/pacman/keyrings/
+        - run: sudo install -m0644 archlinux-trusted /usr/share/pacman/keyrings/
+        - run: sudo install -m0644 archlinux-revoked /usr/share/pacman/keyrings/
+        - run: popd  
+        - run: sudo pacman-key --init
+        - run: sudo pacman-key --populate archlinux
 
       - run: try and build binary to see what happens
-      git clone https://github.com/phantomic12/pacman-repo-builder
-      sudo apt-get -y install cargo
-       cd pacman-repo-builder
+      git clone https://github.com/phantomic12/pacman-repo-builder &&
+      sudo apt-get -y install cargo &&
+       cd pacman-repo-builder &&
        cargo build
