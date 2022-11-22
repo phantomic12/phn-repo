@@ -87,13 +87,13 @@ jobs:
           sudo install -m0644 archlinux.gpg /usr/share/pacman/keyrings/
           sudo install -m0644 archlinux-trusted /usr/share/pacman/keyrings/
           sudo install -m0644 archlinux-revoked /usr/share/pacman/keyrings/
-        popd
-        sudo pacman-key --init
-        sudo pacman-key --populate archlinux manjaro
-        git clone https://github.com/phantomic12/pacman-repo-builder && sudo apt-get -y install cargo && cd pacman-repo-builder && cargo build
+          popd
+          sudo pacman-key --init
+          sudo pacman-key --populate archlinux manjaro
+          git clone https://github.com/phantomic12/pacman-repo-builder && sudo apt-get -y install cargo && cd pacman-repo-builder && cargo build
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3.0.0
-        with:
-          name: pacman-repo-builder
-          path: pacman-repo-builder
+        - name: Upload Artifacts
+          uses: actions/upload-artifact@v3.0.0
+          with:
+            name: pacman-repo-builder
+            path: pacman-repo-builder
