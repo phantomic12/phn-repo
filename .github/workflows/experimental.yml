@@ -11,8 +11,8 @@ jobs:
   buildpkg:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: sudo apt-get update && sudo apt-get install \
+    - uses: actions/checkout@v3
+    - run: sudo apt-get update && sudo apt-get install \
           gdisk \
           zip \
           systemd-container \
