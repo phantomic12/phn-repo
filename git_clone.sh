@@ -44,4 +44,5 @@ git clone https://aur.archlinux.org/patool.git
 git clone https://aur.archlinux.org/vkbasalt-cli.git
 git clone https://aur.archlinux.org/python2-psutil.git
 git clone https://aur.archlinux.org/python2-setuptools.git
+git clone https://aur.archlinux.org/mozilla-common.git
 cd ..
