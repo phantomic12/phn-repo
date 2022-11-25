@@ -45,4 +45,10 @@ members:
   - directory: etcher-bin
   - directory: noisetorch
   - directory: python-proton-client
+  - directory: fvs
+  - directory: icoextract
+  - directory: patool
+  - directory: python-steamgriddb
+  - directory: vkbasalt-cli
+
   

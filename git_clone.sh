@@ -40,5 +40,9 @@ git clone https://aur.archlinux.org/python-pynput.git &&
 git clone https://aur.archlinux.org/etcher-bin.git &&
 git clone https://aur.archlinux.org/noisetorch.git &&
 git clone https://aur.archlinux.org/python-proton-client.git
-
+git clone https://aur.archlinux.org/fvs.git
+git clone https://aur.archlinux.org/icoextract.git
+git clone https://aur.archlinux.org/patool.git
+git clone https://aur.archlinux.org/python-steamgriddb.git
+git clone https://aur.archlinux.org/vkbasalt-cli.git
 cd ..
