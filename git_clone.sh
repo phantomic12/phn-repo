@@ -34,7 +34,6 @@ git clone https://aur.archlinux.org/bottles.git &&
 git clone https://aur.archlinux.org/appimagelauncher.git &&
 git clone https://aur.archlinux.org/ungoogled-chromium-bin.git &&
 git clone https://aur.archlinux.org/rustdesk-bin.git &&
-git clone https://aur.archlinux.org/protonvpn-gui.git &&
 git clone https://aur.archlinux.org/etcher-bin.git &&
 git clone https://aur.archlinux.org/noisetorch.git &&
 cd ..

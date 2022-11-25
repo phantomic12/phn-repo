@@ -39,7 +39,6 @@ members:
   - directory: appimagelauncher
   - directory: ungoogled-chromium-bin
   - directory: rustdesk-bin
-  - directory: protonvpn-gui
   - directory: etcher-bin
   - directory: noisetorch
   
