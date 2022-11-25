@@ -34,7 +34,6 @@ members:
   - directory: virtualbox-ext-oracle
   - directory: vscodium-bin
   - directory: visual-studio-code-bin
-  - directory: visual-studio-code-insiders
   - directory: appimagelauncher
   - directory: ungoogled-chromium-bin
   - directory: rustdesk-bin

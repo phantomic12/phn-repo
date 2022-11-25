@@ -29,8 +29,6 @@ git clone https://aur.archlinux.org/jellyfin-media-player.git &&
 git clone https://aur.archlinux.org/virtualbox-ext-oracle.git &&
 git clone https://aur.archlinux.org/vscodium-bin.git &&
 git clone https://aur.archlinux.org/visual-studio-code-bin.git &&
-git clone https://aur.archlinux.org/visual-studio-code-insiders.git &&
-git clone https://aur.archlinux.org/bottles.git &&
 git clone https://aur.archlinux.org/appimagelauncher.git &&
 git clone https://aur.archlinux.org/ungoogled-chromium-bin.git &&
 git clone https://aur.archlinux.org/rustdesk-bin.git &&
@@ -43,6 +41,5 @@ git clone https://aur.archlinux.org/python-proton-client.git
 git clone https://aur.archlinux.org/fvs.git
 git clone https://aur.archlinux.org/icoextract.git
 git clone https://aur.archlinux.org/patool.git
-git clone https://aur.archlinux.org/python-steamgriddb.git
 git clone https://aur.archlinux.org/vkbasalt-cli.git
 cd ..
