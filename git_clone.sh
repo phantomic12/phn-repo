@@ -42,4 +42,6 @@ git clone https://aur.archlinux.org/fvs.git
 git clone https://aur.archlinux.org/icoextract.git
 git clone https://aur.archlinux.org/patool.git
 git clone https://aur.archlinux.org/vkbasalt-cli.git
+git clone https://aur.archlinux.org/python2-psutil.git
+git clone https://aur.archlinux.org/python2-setuptools.git
 cd ..
