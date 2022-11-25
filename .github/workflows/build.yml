@@ -21,8 +21,8 @@ jobs:
       - run: build-pacman-repo patch-makepkg --replace
       - run: cd 1 && sh git_clone.sh
       - run: build-pacman-repo build
-      - run: cd pacman-repo && cd repo
-      - run: tar --create -v pee.tar *.zst
+      - run: cd pacman-repo && cd
+      - run: tar --create -v pee.tar repo
       - name: upload tar
         uses: actions/upload-artifact@v3.0.0
         with:
