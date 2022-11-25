@@ -13,9 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sudo apt-get -y install git
-      - run: sh test.sh
       - run: sh git_clone.sh
-      - uses: phantomic12/action@l
+      - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: sudo sh genconf.sh && build-pacman-repo build
       - run: tar --create -v pee.tar *.zst
