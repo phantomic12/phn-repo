@@ -50,5 +50,6 @@ members:
   - directory: python2-psutil
   - directory: python2-setuptools
   - directory: mozilla-common
+  - directory: python2
 
   
