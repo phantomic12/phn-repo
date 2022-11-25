@@ -35,7 +35,6 @@ members:
   - directory: vscodium-bin
   - directory: visual-studio-code-bin
   - directory: visual-studio-code-insiders
-  - directory: bottles
   - directory: appimagelauncher
   - directory: ungoogled-chromium-bin
   - directory: rustdesk-bin
@@ -48,7 +47,6 @@ members:
   - directory: fvs
   - directory: icoextract
   - directory: patool
-  - directory: python-steamgriddb
   - directory: vkbasalt-cli
 
   
