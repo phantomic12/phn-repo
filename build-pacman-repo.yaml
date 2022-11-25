@@ -17,7 +17,6 @@ members:
   - directory: ventoy-bin
   - directory: waterfox-g-bin
   - directory: waterfox-g4-bin
-  - directory: waterfox-g3-git
   - directory: pycharm-community-jre
   - directory: slack-desktop
   - directory: heroic-games-launcher-bin
