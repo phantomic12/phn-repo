@@ -1,0 +1,45 @@
+global-settings:
+  container: pkg
+  repository: pacman-repo/repo/phn-repo.db.tar.gz
+  dereference-database-symlinks: true
+  clean-after-build: true
+  arch-filter: [x86_64]
+  packager: 'phantomic12'
+  check: enabled
+  allow-failure: false
+  install-missing-dependencies: true
+members:
+  - directory: brave-nightly-bin
+  - directory: brave-bin
+  - directory: yay-bin
+  - directory: brave-beta-bin
+  - directory: librewolf-bin
+  - directory: ventoy-bin
+  - directory: waterfox-g-bin
+  - directory: waterfox-g4-bin
+  - directory: waterfox-g3-git
+  - directory: pycharm-community-jre
+  - directory: slack-desktop
+  - directory: heroic-games-launcher-bin
+  - directory: jetbrains-fleet
+  - directory: android-studio
+  - directory: anydesk-bin
+  - directory: inxi
+  - directory: armcord-bin
+  - directory: heroku-cli-bin
+  - directory: gdlauncher-bin
+  - directory: tlauncher-org
+  - directory: lunar-client
+  - directory: jellyfin-media-player
+  - directory: virtualbox-ext-oracle
+  - directory: vscodium-bin
+  - directory: visual-studio-code-bin
+  - directory: visual-studio-code-insiders
+  - directory: bottles
+  - directory: appimagelauncher
+  - directory: ungoogled-chromium-bin
+  - directory: rustdesk-bin
+  - directory: protonvpn-gui
+  - directory: etcher-bin
+  - directory: noisetorch
+  
