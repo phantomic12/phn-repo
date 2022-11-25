@@ -8,7 +8,6 @@ git clone https://aur.archlinux.org/brave-nightly-bin.git &&
 git clone https://aur.archlinux.org/brave-bin.git &&
 git clone https://aur.archlinux.org/brave-beta-bin.git &&
 git clone https://aur.archlinux.org/yay-bin.git &&
-git clone https://aur.archlinux.org/librewolf-bin.git &&
 git clone https://aur.archlinux.org/ventoy-bin.git &&
 git clone https://aur.archlinux.org/waterfox-g-bin.git &&
 git clone https://aur.archlinux.org/waterfox-g4-bin.git &&
@@ -42,4 +41,5 @@ git clone https://aur.archlinux.org/icoextract.git
 git clone https://aur.archlinux.org/patool.git
 git clone https://aur.archlinux.org/vkbasalt-cli.git
 git clone https://aur.archlinux.org/mozilla-common.git
+git clone https://aur.archlinux.org/playonlinux.git
 cd ..

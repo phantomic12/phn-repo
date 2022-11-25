@@ -13,7 +13,6 @@ members:
   - directory: brave-bin
   - directory: yay-bin
   - directory: brave-beta-bin
-  - directory: librewolf-bin
   - directory: ventoy-bin
   - directory: waterfox-g-bin
   - directory: waterfox-g4-bin
@@ -47,5 +46,6 @@ members:
   - directory: patool
   - directory: vkbasalt-cli
   - directory: mozilla-common
+  - directory: playonlinux
 
   
