@@ -23,6 +23,4 @@ jobs:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
       - name: Prepare for Upload
-      - run: |
-        ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts
-        sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo "prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
+      - run: ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo "prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
