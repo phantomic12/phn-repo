@@ -21,4 +21,4 @@ jobs:
         with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
-      - run: ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh pacman-repo "prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/3/
+      - run: ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh pacman-repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/3/
