@@ -1,4 +1,4 @@
-name: Autobuild 1st set of packages
+name: Autobuild 3rd set of packages
 
 on:
   push:
@@ -15,10 +15,10 @@ jobs:
       - run: sh temp.sh
       - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
-          command: cd 1 && sh git_clone.sh && build-pacman-repo build
+          command: cd 3 && sh git_clone3.sh && build-pacman-repo build
       - name: Setup SSH
         uses: fastai/workflows/ssh@master
         with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
-      - run: ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh pacman-repo "prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1/
+      - run: ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh pacman-repo "prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/3/
