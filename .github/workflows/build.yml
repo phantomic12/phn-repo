@@ -10,15 +10,41 @@ on:
 jobs:
   buildpkg:
     runs-on: ubuntu-latest
+    container:
+      image: archlinux:base-devel
+      options: --privileged
     steps:
       - uses: actions/checkout@v3
-      - run: sh temp.sh
-      - uses: pacman-repo-builder/action@0.0.0-rc.63
+      - run: wget https://github.com/pacman-repo-builder/pacman-repo-builder/releases/download/0.0.0-rc.63/build-pacman-repo-x86_64-unknown-linux-gnu /usr/local/bin/build-pacman-repo
+      - run: chmod +x /usr/local/bin/build-pacman-repo
+      - run: build-pacman-repo patch-makepkg --replace
+      - run: cd 1 && sh git-clone.sh
+      - run: build-pacman-repo build
+      - run: cd pacman-repo && cd repo
+      - run: tar --create -v pee.tar *.zst
+      - name: upload tar
+        uses: actions/upload-artifact@v3.0.0
         with:
-          command: cd 1 && sh git_clone.sh && build-pacman-repo build
-      - name: Setup SSH
-        uses: fastai/workflows/ssh@master
-        with:
+          name: pee.tar
+          path: pee.tar
+upload-to-sourceforge:
+    if: ${{ always() }}
+    needs: [buildpkg]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup SSH
+      uses: fastai/workflows/ssh@master
+      with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
-      - run: ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh /github/workspace/3/pacman-repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1/
+    - uses: actions/checkout@v3
+    - run: mkdir repo && cd repo
+    - name: Download Artifacts
+      uses: actions/download-artifact@v3.0.0
+    - name: Prepare for Upload
+      run: |
+        tar -xvf pee.tar
+        rm pee.tar
+        cd ..
+        ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts
+        sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1"
