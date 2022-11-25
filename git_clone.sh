@@ -39,4 +39,6 @@ git clone https://aur.archlinux.org/python-protonvpn-nm-lib.git &&
 git clone https://aur.archlinux.org/python-pynput.git &&
 git clone https://aur.archlinux.org/etcher-bin.git &&
 git clone https://aur.archlinux.org/noisetorch.git &&
+git clone https://aur.archlinux.org/python-proton-client.git
+
 cd ..

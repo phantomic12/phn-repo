@@ -44,4 +44,5 @@ members:
   - directory: python-pynput
   - directory: etcher-bin
   - directory: noisetorch
+  - directory: python-proton-client
   
