@@ -16,7 +16,6 @@ jobs:
       - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: sh git_clone.sh && build-pacman-repo build
-      - run: tar --create -v pee.tar *.zst
       - name: Setup SSH
         uses: fastai/workflows/ssh@master
         with:
