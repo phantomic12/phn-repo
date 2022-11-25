@@ -12,7 +12,6 @@ git clone https://aur.archlinux.org/librewolf-bin.git &&
 git clone https://aur.archlinux.org/ventoy-bin.git &&
 git clone https://aur.archlinux.org/waterfox-g-bin.git &&
 git clone https://aur.archlinux.org/waterfox-g4-bin.git &&
-git clone https://aur.archlinux.org/waterfox-g3-git.git &&
 git clone https://aur.archlinux.org/pycharm-community-jre.git &&
 git clone https://aur.archlinux.org/slack-desktop.git &&
 git clone https://aur.archlinux.org/heroic-games-launcher-bin.git &&
@@ -42,8 +41,5 @@ git clone https://aur.archlinux.org/fvs.git
 git clone https://aur.archlinux.org/icoextract.git
 git clone https://aur.archlinux.org/patool.git
 git clone https://aur.archlinux.org/vkbasalt-cli.git
-git clone https://aur.archlinux.org/python2-psutil.git
-git clone https://aur.archlinux.org/python2-setuptools.git
 git clone https://aur.archlinux.org/mozilla-common.git
-git clone https://aur.archlinux.org/python2.git
 cd ..
