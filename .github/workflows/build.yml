@@ -27,7 +27,7 @@ jobs:
         with:
           name: pee.tar
           path: pee.tar
-upload-to-sourceforge:
+  upload-to-sourceforge:
     if: ${{ always() }}
     needs: [buildpkg]
     runs-on: ubuntu-latest
