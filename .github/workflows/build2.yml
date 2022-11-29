@@ -13,12 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sh temp.sh
-      - uses: pacman-repo-builder/action@0.0.0-rc.63
-        with:
-          command: cd 2 && sh git_clone2.sh && build-pacman-repo build
       - name: Setup SSH
         uses: fastai/workflows/ssh@master
         with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
-      - run: ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh /github/workspace/3/pacman-repo/ prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/2/
+      - uses: pacman-repo-builder/action@0.0.0-rc.63
+        with:
+          command: cd 2 && sh git_clone2.sh && build-pacman-repo build
+      - run: cd 2 && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/2/

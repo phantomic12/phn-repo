@@ -1,4 +1,4 @@
-name: Autobuild 1st set of packages
+name: Autobuild 2nd set of packages
 
 on:
   push:
@@ -10,40 +10,15 @@ on:
 jobs:
   buildpkg:
     runs-on: ubuntu-latest
-    container:
-      image: phantomic/pacrepo:latest
-      options: --privileged
     steps:
       - uses: actions/checkout@v3
-      - run: cd 1 && sh git_clone.sh
-      - run: pacman -Sy --noconfirm tree
-      - run: tree
-      - run: build-pacman-repo build
-      - run: cd pacman-repo && cd
-      - run: tar --create -v pee.tar repo
-      - name: upload tar
-        uses: actions/upload-artifact@v3.0.0
+      - run: sh temp.sh
+      - name: Setup SSH
+        uses: fastai/workflows/ssh@master
         with:
-          name: pee.tar
-          path: pee.tar
-  upload-to-sourceforge:
-    if: ${{ always() }}
-    needs: [buildpkg]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Setup SSH
-      uses: fastai/workflows/ssh@master
-      with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
-    - uses: actions/checkout@v3
-    - run: mkdir repo && cd repo
-    - name: Download Artifacts
-      uses: actions/download-artifact@v3.0.0
-    - name: Prepare for Upload
-      run: |
-        tar -xvf pee.tar
-        rm pee.tar
-        cd ..
-        ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts
-        sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1"
+      - uses: pacman-repo-builder/action@0.0.0-rc.63
+        with:
+          command: cd 1 && sh git_clone.sh && build-pacman-repo build
+      - run: cd 1 && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1/
