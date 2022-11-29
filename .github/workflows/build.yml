@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: cd 1 && sh git_clone.sh
+      - run: pacman -Sy --noconfirm tree
       - run: tree
       - run: build-pacman-repo build
       - run: cd pacman-repo && cd
