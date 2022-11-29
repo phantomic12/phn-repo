@@ -8,12 +8,12 @@ global-settings:
   check: enabled
   allow-failure: false
   install-missing-dependencies: true
-members:
-  - directory: noisetorch
-  - directory: python-proton-client
-  - directory: fvs
-  - directory: icoextract
-  - directory: patool
-  - directory: vkbasalt-cli
-  - directory: mozilla-common
-  - directory: playonlinux
+aur-package-names:
+  - noisetorch
+  - python-proton-client
+  - fvs
+  - icoextract
+  - patool
+  - vkbasalt-cli
+  - mozilla-common
+  - playonlinux
