@@ -14,5 +14,6 @@ git clone https://aur.archlinux.org/jetbrains-fleet.git
 git clone https://aur.archlinux.org/android-studio.git
 git clone https://aur.archlinux.org/anydesk-bin.git
 git clone https://aur.archlinux.org/inxi.git 
-git clone https://aur.archlinux.org/armcord-bin.git 
+git clone https://aur.archlinux.org/armcord-bin.git
+cd .. 
 
