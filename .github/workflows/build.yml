@@ -11,7 +11,7 @@ jobs:
   buildpkg:
     runs-on: ubuntu-latest
     container:
-      image: phantomic12/pacrepo:latest
+      image: phantomic/pacrepo:latest
       options: --privileged
     steps:
       - uses: actions/checkout@v3
