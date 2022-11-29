@@ -1,4 +1,5 @@
-mkdir pkg 
+mkdir pkg
+mkdir pacman-repo
 cd pkg
 git clone https://aur.archlinux.org/brave-nightly-bin.git
 git clone https://aur.archlinux.org/brave-bin.git
