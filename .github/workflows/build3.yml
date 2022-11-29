@@ -21,4 +21,4 @@ jobs:
       - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd 3 && sh git_clone3.sh && build-pacman-repo build && pacman -Sy --noconfirm tree && tree
-      - run: sudo apt-get -y install tree && tree cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/3/
+      - run: sudo apt-get -y install tree && tree && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/3/
