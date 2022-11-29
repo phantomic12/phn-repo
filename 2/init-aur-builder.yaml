@@ -20,7 +20,7 @@ aur-package-names:
   - appimagelauncher
   - ungoogled-chromium-bin
   - rustdesk-bin
-  - protonvpn-gui
   - python-protonvpn-nm-lib
+  - protonvpn-gui
   - python-pynput
   - etcher-bin
