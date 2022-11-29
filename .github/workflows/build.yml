@@ -11,15 +11,10 @@ jobs:
   buildpkg:
     runs-on: ubuntu-latest
     container:
-      image: archlinux:base-devel
+      image: phantomic12/pacrepo:latest
       options: --privileged
     steps:
       - uses: actions/checkout@v3
-      - run: sh init.sh
-      - run: pacman -Sy --noconfirm git wget
-      - run: wget -O my.file https://github.com/pacman-repo-builder/pacman-repo-builder/releases/download/0.0.0-rc.63/build-pacman-repo-x86_64-unknown-linux-gnu
-      - run: mv my.file /usr/local/bin/build-pacman-repo && chmod +x /usr/local/bin/build-pacman-repo
-      - run: build-pacman-repo patch-makepkg --replace
       - run: cd 1 && sh git_clone.sh
       - run: build-pacman-repo build
       - run: cd pacman-repo && cd
