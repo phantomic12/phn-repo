@@ -9,9 +9,9 @@ global-settings:
   allow-failure: false
   install-missing-dependencies: true
 aur-package-names:
-  - microsoft-edge-bin
+  - microsoft-edge-stable-bin
   - microsoft-edge-beta-bin
   - microsoft-edge-dev-bin
-  
+
 
 
