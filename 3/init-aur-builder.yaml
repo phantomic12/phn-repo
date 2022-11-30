@@ -10,7 +10,6 @@ global-settings:
   install-missing-dependencies: true
 aur-package-names:
   - discord-rpc-cli
-  - dynarmic
   - noisetorch
   - python-proton-client
   - fvs
