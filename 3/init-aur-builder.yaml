@@ -26,3 +26,4 @@ aur-package-names:
   - yuzu
   - yuzu-git
   - yuzu-early-access
+  - zydis
