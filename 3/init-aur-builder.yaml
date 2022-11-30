@@ -17,4 +17,12 @@ aur-package-names:
   - vkbasalt-cli
   - mozilla-common
   - playonlinux
-  - packettracer
+  - vmware-workstation
+  - vmware-keymaps
+  - vmware-unlocker-bin
+  - vmware-ovftool
+  - ryujinx-git
+  - spotify
+  - yuzu
+  - yuzu-git
+  - yuzu-early-access

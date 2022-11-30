@@ -1,0 +1,17 @@
+global-settings:
+  container: pkg
+  repository: pacman-repo/repo/phn-repo-s4.db.tar.gz
+  dereference-database-symlinks: true
+  clean-after-build: true
+  arch-filter: [x86_64]
+  packager: 'phantomic12'
+  check: enabled
+  allow-failure: false
+  install-missing-dependencies: true
+aur-package-names:
+  - microsoft-edge-bin
+  - microsoft-edge-beta-bin
+  - microsoft-edge-dev-bin
+  
+
+
