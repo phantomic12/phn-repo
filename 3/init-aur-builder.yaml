@@ -11,7 +11,7 @@ global-settings:
 aur-package-names:
   - discord-rpc-cli
   - dynarmic
-  - cpp-httplib
+  - cpp-httplib-compiled
   - cpp-jwt-git
   - cubeb-git
   - noisetorch
@@ -28,7 +28,4 @@ aur-package-names:
   - vmware-ovftool
   - ryujinx-git
   - spotify
-  - yuzu
-  - yuzu-git
-  - yuzu-early-access
   - zydis
