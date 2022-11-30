@@ -11,9 +11,6 @@ global-settings:
 aur-package-names:
   - discord-rpc-cli
   - dynarmic
-  - cpp-httplib-compiled
-  - cpp-jwt-git
-  - cubeb-git
   - noisetorch
   - python-proton-client
   - fvs
@@ -26,6 +23,4 @@ aur-package-names:
   - vmware-keymaps
   - vmware-unlocker-bin
   - vmware-ovftool
-  - ryujinx-git
   - spotify
-  - zydis
