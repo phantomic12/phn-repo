@@ -1,0 +1,24 @@
+name: Autobuild 6th set of packages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 */3 * * *"
+  workflow_dispatch:
+
+jobs:
+  buildpkg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: sh temp.sh
+      - name: Setup SSH
+        uses: fastai/workflows/ssh@master
+        with:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          key_file: id_ecdsa
+      - uses: pacman-repo-builder/action@0.0.0-rc.63
+        with:
+          command: cd 6 && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+      - run: cd 6 && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/6/
