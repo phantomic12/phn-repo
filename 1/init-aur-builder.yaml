@@ -10,7 +10,6 @@ global-settings:
   check: disabled
 aur-package-names:
   - brave-nightly-bin
-  - brave-bin
   - yay-bin
   - brave-beta-bin
   - ventoy-bin
