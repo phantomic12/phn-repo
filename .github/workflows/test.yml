@@ -14,13 +14,13 @@ jobs:
       - uses: actions/checkout@v3
       - run: sh temp.sh
       - run: |
-        ssh-keyscan -t ed25519 frs.sourceforge.net >> /home/runner/.ssh/known_hosts
-        echo "AAAAC3NzaC1lZDI1NTE5AAAAIMV6fPpi2WMr+wnH4ANBa0QNROgNG813DyAI8nxxp2gT" >> /home/runner/.ssh/github_actions
-        ssh-add /home/runner/.ssh/github_actions
+          ssh-keyscan -t ed25519 frs.sourceforge.net >> /home/runner/.ssh/known_hosts
+          echo "AAAAC3NzaC1lZDI1NTE5AAAAIMV6fPpi2WMr+wnH4ANBa0QNROgNG813DyAI8nxxp2gT" >> /home/runner/.ssh/github_actions
+          ssh-add /home/runner/.ssh/github_actions
 
-        ssh-keyscan -t rsa storage.osdn.net >> /home/runner/.ssh/known_hosts
-        echo "iPq047cYUbQfAh5EBPSwbTg5+YjjugA6iOS8NGI8Hvw" >> /home/runner/.ssh/github_actions
-        ssh-add /home/runner/.ssh/github_actions
+          ssh-keyscan -t rsa storage.osdn.net >> /home/runner/.ssh/known_hosts
+          echo "iPq047cYUbQfAh5EBPSwbTg5+YjjugA6iOS8NGI8Hvw" >> /home/runner/.ssh/github_actions
+          ssh-add /home/runner/.ssh/github_actions
 
         
       - uses: pacman-repo-builder/action@0.0.0-rc.63

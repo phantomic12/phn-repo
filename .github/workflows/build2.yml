@@ -1,6 +1,6 @@
 name: Autobuild 2nd set of packages
 
-on
+on:
   schedule:
     - cron: "0 */3 * * *"
   workflow_dispatch:
