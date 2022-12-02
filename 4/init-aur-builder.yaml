@@ -13,6 +13,8 @@ aur-package-names:
   - microsoft-edge-beta-bin
   - microsoft-edge-dev-bin
   - jdownloader2
+  - discord-canary
+  - betterdiscord-installer
 
 
 
