@@ -1,4 +1,4 @@
-name: Autobuild 10th set of packages
+name: osdn
 
 on:
   push:
