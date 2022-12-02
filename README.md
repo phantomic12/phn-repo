@@ -50,3 +50,5 @@ split into multiple repos because GA runners have no space whatsoever, that was 
 coming soon
 
 osdn hosting
+
+![SourceForge](https://img.shields.io/sourceforge/dm/phn-repo?color=%23AA336A)
