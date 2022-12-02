@@ -1,4 +1,4 @@
-name: osdn
+name: SF and OSDN upload test
 
 on:
   push:
@@ -13,19 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sh temp.sh
-      - run: |
-          echo "## ssh setup"
-          mkdir -p /home/runner/.ssh
-          touch /home/runner/.ssh/github_actions
-          chmod 600 /home/runner/.ssh/github_actions
-          ssh-agent -a /tmp/ssh_agent.sock > /dev/null
-          
+      - name: Setup SSH
+        uses: fastai/workflows/ssh@master
+        with:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          key_file: id_ecdsa
       - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
-          command: cd 10 && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
-      - run: |          
-          ssh-keyscan -t rsa storage.osdn.net >> /home/runner/.ssh/known_hosts
-          echo "iPq047cYUbQfAh5EBPSwbTg5+YjjugA6iOS8NGI8Hvw" >> /home/runner/.ssh/github_actions
-          ssh-add /home/runner/.ssh/github_actions
-      
-      - run: cd 10 && cd pacman-repo && rsync -ar -e  repo phantomic12@fstorage.osdn.net:/storage/groups/p/pf/phantomic12/phn-repo/10/
+          command: cd 1 && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+      - run: cd 1 && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1/
+      - name: Setup SSH
+        uses: fastai/workflows/ssh@master
+        with:
+          ssh_key: ${{ secrets.SSH_KEY_OSDN }}
+          key_file: id_rsa
+      - run: rsync -ar repo phantomic12@storage.osdn.net:/storage/groups/p/pf/phantomic12/phn-repo/test
