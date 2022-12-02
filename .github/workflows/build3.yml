@@ -1,8 +1,6 @@
 name: Autobuild 3rd set of packages
 
 on:
-  push:
-    branches: [main]
   schedule:
     - cron: "0 */3 * * *"
   workflow_dispatch:
@@ -13,12 +11,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sh temp.sh
-      - name: Setup SSH
+      - name: Setup SSH (SourceForge)
         uses: fastai/workflows/ssh@master
         with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
+      - name: Setup SSH (OSDN)
+        uses: fastai/workflows/ssh@master
+        with:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          key_file: id_rsa
       - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd 3 && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
       - run: cd 3 && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/3/
+      - run: ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/3/
