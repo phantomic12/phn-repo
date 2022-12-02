@@ -1,12 +1,10 @@
 name: SF and OSDN upload test
 
 on:
-  push:
-    branches: [main]
   schedule:
     - cron: "0 */3 * * *"
   workflow_dispatch:
-
+# osdn key is also sourceforge key
 jobs:
   buildpkg:
     runs-on: ubuntu-latest
@@ -16,15 +14,10 @@ jobs:
       - name: Setup SSH
         uses: fastai/workflows/ssh@master
         with:
-          ssh_key: ${{ secrets.SSH_KEY }}
-          key_file: id_ecdsa
+          ssh_key: ${{ secrets.SSH_KEY_OSDN }}
+          key_file: id_rsa
       - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd 1 && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
       - run: cd 1 && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1/
-      - name: Setup SSH
-        uses: fastai/workflows/ssh@master
-        with:
-          ssh_key: ${{ secrets.SSH_KEY_OSDN }}
-          key_file: id_rsa
       - run: rsync -ar repo phantomic12@storage.osdn.net:/storage/groups/p/pf/phantomic12/phn-repo/test
