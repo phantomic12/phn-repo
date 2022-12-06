@@ -52,3 +52,5 @@ coming soon
 repo auto installation script
 
 ![SourceForge](https://img.shields.io/sourceforge/dm/phn-repo?color=%23AA336A)
+
+i highly suggest u dont add these, im currectly redesigning the entire build system, hopefully there wont be ten repos to add
