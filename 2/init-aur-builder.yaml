@@ -24,3 +24,5 @@ aur-package-names:
   - protonvpn-gui
   - python-pynput
   - etcher-bin
+  - danser
+  - danser-git

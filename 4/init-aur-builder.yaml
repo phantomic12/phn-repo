@@ -25,5 +25,17 @@ aur-package-names:
   - intellij-idea-ue-eap
   - webstorm
   - webstorm-eap
+  - gnome-shell-extension-ddterm-git
+  - gnome-shell-extension-pop-shell-git
+  - gnome-shell-extension-blur-my-shell-git
+  - gnome-shell-extension-no-overview
+  - gnome-shell-extension-dash-to-panel
+  - gnome-shell-extension-media-controls
+  - gnome-shell-extension-caffeine
+  - gnome-shell-extension-jiggle
+  - gnome-shell-extension-gtk4-desktop-icons-ng
+  - gnome-shell-extension-ddterm
+  - gnome-shell-extension-just-perfection-desktop
+
 
 
