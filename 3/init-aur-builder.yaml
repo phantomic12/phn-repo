@@ -30,7 +30,6 @@ aur-package-names:
   - gnome-shell-extension-clipboard-indicator
   - gnome-shell-performance
   - gnome-shell-extension-nasa-apod
-  - gnome-shell-extension-appindicator-git
   - gnome-shell-extension-openweather
   - gnome-shell-extension-blur-my-shell
   
