@@ -51,4 +51,6 @@ coming soon
 
 osdn hosting
 
+repo auto installation script
+
 ![SourceForge](https://img.shields.io/sourceforge/dm/phn-repo?color=%23AA336A)
