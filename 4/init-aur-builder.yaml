@@ -21,7 +21,7 @@ aur-package-names:
   - intellij-idea-community-edition-no-jre
   - intellij-idea-ultimate-edition
   - intellij-idea-ce-eap
-  - intellij-idea-community-edition
+  - intellij-idea-ce
   - intellij-idea-ue-eap
   - webstorm
   - webstorm-eap
