@@ -10,6 +10,6 @@ global-settings:
   install-missing-dependencies: true
 aur-package-names:
  - octopi
-
+ - firedragon
 
 
