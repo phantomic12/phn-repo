@@ -32,7 +32,6 @@ aur-package-names:
   - gnome-shell-extension-dash-to-panel
   - gnome-shell-extension-media-controls
   - gnome-shell-extension-caffeine
-  - gnome-shell-extension-jiggle
   - gnome-shell-extension-gtk4-desktop-icons-ng
   - gnome-shell-extension-ddterm
   - gnome-shell-extension-just-perfection-desktop
