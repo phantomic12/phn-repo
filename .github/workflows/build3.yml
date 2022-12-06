@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: sh temp.sh
       - name: Setup SSH
         uses: fastai/workflows/ssh@master
         with:

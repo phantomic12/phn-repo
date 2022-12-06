@@ -19,9 +19,9 @@ aur-package-names:
   - pycharm-professional
   - armcord-bin
   - intellij-idea-community-edition-no-jre
-  - intellij-idea-ultimate-edition-jre
+  - intellij-idea-ultimate-edition
   - intellij-idea-ce-eap
-  - intellij-idea-community-edition-jre
+  - intellij-idea-community-edition
   - intellij-idea-ue-eap
   - webstorm
   - webstorm-eap
