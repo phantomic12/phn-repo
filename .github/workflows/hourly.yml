@@ -26,7 +26,6 @@ jobs:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
       - run: cd hourly-bin && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
-    
   hourly_git:
     if: ${{ always() }}
     needs: [hourly_bin]
