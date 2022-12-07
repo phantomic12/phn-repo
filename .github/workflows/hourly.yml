@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: cd hourly-bin
-      #- run: sh repo.sh
+      - run:  echo "put repo cmd here"
       - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd nightly-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
