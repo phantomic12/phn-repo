@@ -2,9 +2,9 @@ name: Test Packages
 
 # add o once complete
 
-n:
-push:
-  branches: [reo]
+on:
+  push:
+    branches: [redo]
 
 jobs:
   buildpkg:
