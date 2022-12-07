@@ -17,11 +17,11 @@ jobs:
       - uses: actions/checkout@v3
       - run: cd hourly-bin
       - run:  echo "put repo cmd here"
-      - uses: pacman-repo-builder/action@0.0.0-rc.63
+        uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd nightly-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
       - name: Upload to SF
-      - uses: fastai/workflows/ssh@master
+        uses: fastai/workflows/ssh@master
         with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
@@ -34,7 +34,8 @@ jobs:
       - uses: actions/checkout@v3
       - run: cd hourly-git
       - run: sh repo.sh
-      - uses: pacman-repo-builder/action@0.0.0-rc.63
+      - name: Build Packages
+        uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd hourly-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
       - uses: fastai/workflows/ssh@master
