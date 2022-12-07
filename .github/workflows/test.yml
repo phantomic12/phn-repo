@@ -2,7 +2,7 @@ name: Test Packages
 
 # add o once complete
 
-on:
+n:
   push:
     branches: [redo]
 
