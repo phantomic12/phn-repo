@@ -1,4 +1,4 @@
-Name: Autobuild hourly git and bin packages
+name: Autobuild hourly git and bin packages
 
 # Before packages are added,
 # they must be tested with the
@@ -27,7 +27,6 @@ jobs:
       - run: cd hourly-bin && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
     
   hourly_git:
-    needs: [hourly_bin]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
