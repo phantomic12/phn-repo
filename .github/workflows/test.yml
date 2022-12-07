@@ -3,8 +3,8 @@ name: Test Packages
 # add o once complete
 
 n:
-  push:
-    branches: [reo]
+push:
+  branches: [reo]
 
 jobs:
   buildpkg:
@@ -19,4 +19,4 @@ jobs:
       - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd test && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
-      - run: cd 1 && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1/
+      - run: cd test && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/1/
