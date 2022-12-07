@@ -9,4 +9,4 @@ global-settings:
   arch-filter: [x86_64]
   check: disabled
 aur-package-names:
-  - fish-git
+  - libreoffice-dev-bin
