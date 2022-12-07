@@ -14,9 +14,11 @@ jobs:
   hourly_bin:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
       - uses: actions/checkout@v3
-      - run: cd hourly-bin
-      - run:  echo "put repo cmd here"
+      - name: Retrieve repo files
+      - run: cd hourly-bin && echo "put repo cmd here"
+      - name: Build Repo
         uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd nightly-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
@@ -32,8 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: cd hourly-git
-      - run: sh repo.sh
+      - run: cd hourly-git  sh repo.sh
       - name: Build Packages
         uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
