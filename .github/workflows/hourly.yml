@@ -32,13 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        run: cd hourly-git
-        run: sh repo.sh
-        uses: pacman-repo-builder/action@0.0.0-rc.63
+      - run: cd hourly-git
+      - run: sh repo.sh
+      - uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
           command: cd hourly-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
       - name: Upload to SF
-        uses: fastai/workflows/ssh@master
+      - uses: fastai/workflows/ssh@master
         with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
