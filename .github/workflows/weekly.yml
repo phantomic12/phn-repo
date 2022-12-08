@@ -1,29 +1,29 @@
-name: Autobuild hourly git and bin packages
+name: Autobuild weekly packages
 
 # Before packages are added,
 # they must be tested with the
 # test.yml workflow.
 
-on:
+n:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "59 */8 * * *"
   workflow_dispatch:
 
 
 jobs:
-  hourly_bin:
+  weekly_bin:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Retrieve repo files
-        run: cd hourly-bin && sh repo.sh
+        run: cd weekly-bin && sh repo.sh
 
       - name: Build Repo
         uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
-          command: cd hourly-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+          command: cd weekly-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
 
       - name: Setup SSH
         uses: fastai/workflows/ssh@master
@@ -32,23 +32,23 @@ jobs:
           key_file: id_ecdsa
 
       - name: Upload to SF
-        run: cd hourly-bin && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
+        run: cd weekly-bin && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
 
-  hourly_git:
+  weekly_git:
     if: ${{ always() }}
-    needs: [hourly_bin]
+    needs: [weekly_bin]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Retrieve repo files
-        run: cd hourly-git && sh repo.sh
+        run: cd weekly-git && sh repo.sh
 
       - name: Build Packages
         uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
-          command: cd hourly-git && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+          command: cd weekly-git && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
 
       - name: Setup SSH    
         uses: fastai/workflows/ssh@master
@@ -57,10 +57,7 @@ jobs:
           key_file: id_ecdsa
 
       - name: Upload to SF
-        run: cd hourly-git && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
-
-
-
+        run: cd weekly-git && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
 
 
 

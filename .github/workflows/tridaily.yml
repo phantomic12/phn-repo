@@ -1,0 +1,63 @@
+name: Autobuild tridaily packages
+
+# Before packages are added,
+# they must be tested with the
+# test.yml workflow.
+
+n:
+  schedule:
+    - cron: "59 */8 * * *"
+  workflow_dispatch:
+
+
+jobs:
+  tridaily_bin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Retrieve repo files
+        run: cd tridaily && sh repo.sh
+
+      - name: Build Repo
+        uses: pacman-repo-builder/action@0.0.0-rc.63
+        with:
+          command: cd tridaily-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+
+      - name: Setup SSH
+        uses: fastai/workflows/ssh@master
+        with:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          key_file: id_ecdsa
+
+      - name: Upload to SF
+        run: cd tridaily-bin && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
+
+  tridaily_git:
+    if: ${{ always() }}
+    needs: [tridaily_bin]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Retrieve repo files
+        run: cd tridaily-git && sh repo.sh
+
+      - name: Build Packages
+        uses: pacman-repo-builder/action@0.0.0-rc.63
+        with:
+          command: cd tridaily-git && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+
+      - name: Setup SSH    
+        uses: fastai/workflows/ssh@master
+        with:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          key_file: id_ecdsa
+
+      - name: Upload to SF
+        run: cd tridaily-git && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
+
+
+
