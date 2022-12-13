@@ -11,10 +11,7 @@ global-settings:
 aur-package-names:
   - yay-bin
   - brave-bin
-  - gnome-shell-extension-desktop-icons-ng
   - gnome-shell-extension-espresso
-  - gnome-shell-extension-clipboard-history
-  - gnome-shell-extension-rounded-window-corners
   - gnome-shell-extension-gsconnect
   - gnome-shell-extension-dash-to-dock
   - gnome-shell-extension-clipboard-indicator

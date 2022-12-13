@@ -20,3 +20,4 @@ aur-package-names:
   - inxi
   - heroku-cli-bin
   - microsoft-edge-stable-bin
+  - python2-bin
