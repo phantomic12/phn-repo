@@ -1,4 +1,4 @@
-name: Autobuild daily packages
+name: Autobuild monthly packages
 
 # Before packages are added,
 # they must be tested with the
