@@ -4,9 +4,9 @@ name: Autobuild daily packages
 # they must be tested with the
 # test.yml workflow.
 
-n:
+on:
   schedule:
-    - cron: "59 */8 * * *"
+    - cron: "0 2 * * *"
   workflow_dispatch:
 
 

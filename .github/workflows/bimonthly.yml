@@ -4,9 +4,9 @@ name: Autobuild bimonthly packages
 # they must be tested with the
 # test.yml workflow.
 
-n:
+on:
   schedule:
-    - cron: "59 */8 * * *"
+    - cron: "0 5 */15 * *"
   workflow_dispatch:
 
 

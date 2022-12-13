@@ -1,0 +1,8 @@
+tridaily - 59th min of every 8 hours
+daily - 2rd hour of every day
+weekly - 4th hour of every 7th day
+bimonthly - 5th hour of every 15th day
+monthly - 7th hour of every 30th day
+
+find . -name '*:*' -type f -print0 | perl -0ne '
+  rename $_, s{[^/]+$}{$& =~ y/:/-/r}res or warn "rename $_: $!"'

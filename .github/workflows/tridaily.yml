@@ -4,7 +4,7 @@ name: Autobuild tridaily packages
 # they must be tested with the
 # test.yml workflow.
 
-n:
+on:
   schedule:
     - cron: "59 */8 * * *"
   workflow_dispatch:
