@@ -51,7 +51,7 @@ jobs:
       - name: Build Packages
         uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
-          command: cd bimonthly-git && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+          command: cd bimonthly-git && sh c.sh && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
 
       - name: Setup SSH    
         uses: fastai/workflows/ssh@master
