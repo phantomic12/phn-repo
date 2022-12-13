@@ -17,4 +17,5 @@ aur-package-names:
   - discord-rpc-cli
   - ungoogled-chromium-bin
   - rustdesk-bin
+  - snapd
 

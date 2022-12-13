@@ -31,6 +31,10 @@ jobs:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
 
+      - name: Fix Filenames
+        run: cd weekly-bin && sh nm.sh
+
+
       - name: Upload to SF
         run: cd weekly-bin && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
 
@@ -55,6 +59,9 @@ jobs:
         with:
           ssh_key: ${{ secrets.SSH_KEY }}
           key_file: id_ecdsa
+
+      - name: Fix Filenames
+        run: cd weekly-git && sh nm.sh
 
       - name: Upload to SF
         run: cd weekly-git && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
