@@ -18,12 +18,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Retrieve repo files
-        run: cd daily-bin && sh repo.sh
+        run: cd monthly-bin && sh repo.sh
 
       - name: Build Repo
         uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
-          command: cd daily-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+          command: cd monthly-bin && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
 
       - name: Setup SSH
         uses: fastai/workflows/ssh@master
@@ -32,10 +32,10 @@ jobs:
           key_file: id_ecdsa
 
       - name: Fix Filenames
-        run: cd bimonthly-bin && sh nm.sh
+        run: cd monthly-bin && sh nm.sh
 
       - name: Upload to SF
-        run: cd daily-bin && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
+        run: cd monthly-bin && cd pacman-repo && ssh-keyscan frs.sourceforge.net >> ~/.ssh/known_hosts && sshpass -p "${{ secrets.PASSWORD }}" rsync -arsP -e ssh --inplace repo prtnic0924@frs.sourceforge.net:/home/pfs/project/phn-repo/
 
   monthly_git:
     if: ${{ always() }}
@@ -46,12 +46,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Retrieve repo files
-        run: cd daily-git && sh repo.sh
+        run: cd monthly-git && sh repo.sh
 
       - name: Build Packages
         uses: pacman-repo-builder/action@0.0.0-rc.63
         with:
-          command: cd daily-git && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
+          command: cd monthly-git && build-pacman-repo init-aur-builder && cat build-pacman-repo.yaml && build-pacman-repo build
 
       - name: Setup SSH    
         uses: fastai/workflows/ssh@master
