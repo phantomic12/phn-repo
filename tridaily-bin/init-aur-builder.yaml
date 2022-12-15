@@ -10,3 +10,4 @@ global-settings:
   check: disabled
 aur-package-names:
   - brave-nightly-bin
+  - microsoft-edge-dev-bin
