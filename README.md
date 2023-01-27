@@ -19,3 +19,5 @@ repo auto installation script
 
 
 this wont be maintained anymore, complete redesign happening on the phantomsarch repo, this will be dead either when this stuff gets deleted or whenever github actions decides to stop working
+
+im archiving this, if anyone wants to use this as a reference for anything feel free
